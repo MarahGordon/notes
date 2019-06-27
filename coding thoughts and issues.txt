@@ -1,0 +1,93 @@
+coding final project thoughts and issues:
+
+!! i's name was changed to back !!
+
+Don't know if while loop is best option
+need to check after every combo so any nested loops would need an and crack != password 
+conditional (would that work?)
+need to preserve the rest of the charecters in the passcode when you change one
+but it wouldn't be the best idea to  make every value in the crack list it's own
+variable becuse you have to keep adding on more and each variable would need it's
+own nested loop(?) and I would some how need to get through every combination of
+the variables before it but I can't just use a count on the variables before it
+they need to cycle through ciclicly and test every combo with it added. If I reset it
+when the charecter before reachs their not all combos would get tested
+maybe I could do somthing with if statments and/or continues?
+
+!! I could use .append to add elements to the crack list
+but I still have the problem of cycling through ensuring all combos are checked
+and do I need to refer to which value on the list is doing things(?) how would I
+refer to the generated values
+! I mean obviously crack(#) but how will we refer to all the numbers if they keep
+getting added without making a nested loop for all of them
+! addition (?) but how, ! addition with variable magic (?) but what 'magic'
+do I have to do. 
+? |can you do addition to determin your list values in the list slot
+or do you have do it with some sort of variable out side the box| yes, yes you can
+!! use i (?)
+
+!? should I be cycling through with the frount changing first or the back, which
+would work
+
+if I use .append it will tack on whatever value i is right now  but it won't change when I change i
+
+yep, it did exsactly what I thought it would, which is bad becuse that means I have no idea what to do.
+
+for ch in charecters
+crack[i] = ch
+Problem: crack = "" --> as a string: 'str' object does not support item assignment
+	 crack = () --> 'tuple' object does not support item assignment
+	 crack = [()] --> list assignment index out of range
+
+!! list assignment index out of range: let's go look that up, seems like it may be
+convinetly sovable, though it could have to deal w/ ch considering it is in line 12, which would be a pain.
+
+I think we may need it as a string
+strings are immutable. WHY WOULD YOU DO THIS TO ME
+but it looks like you can still set it equle to somthing later and it will create a new variation?
+
+ok so, crack[i] = ch <--- I don't know if you can do that to a list
+
+we don't want to use .append becuse we need to work the variables independently and we don't want to have to work with them all individualy
+
+crack = [()] -> list assignment index out of range -> not solved by -> crack = [("a")]
+
+!! lets try crack as a dictionary becuse those are mutable and I don't have any better ideas
+	okay that did a whole lot of something but I think I can work with this
+I need to find a way to check wether crack != password during every itteration of this for loop:  for ch in charecters:    becuse right now I am not cheacking these combos
+
+!!! use an if statment to check
+now I'm stuck in an infinate loop
+using    else  break, or else  exit, doesn't work
+
+my problem is that I am only changing the last digit of the crack
+
+
+ for ch in charecters:
+        if crack != password:
+            crack[i] = ch      <------- this code cycles one value of crack through all
+            print("check 2")            of the diffrent charecters
+            print(crack)
+
+so we know we are going to need some sort of condition to meet to enter it and at least one thing to change when we leave
+
+!!! after anlalisis we know that that for loop should only be applied to the last value of crack so we probably need to add another variable and to keep a varaible that is much like the one we have. (maybe)
+!!!IMPORTANT!!! In crack: the value in the back rises (i), when a value hits >89 it goes back down to 0 and passes +1 to the value in front of it when the first value hits >89 it goes back down to 0 and adds a new value to the back
+
+I'm stuck on this:
+if crack != password and crack[s] != charecters[89]:
+KeyError: -1
+since second_back = i - 1 you would think that it would be that the i value is too low but I added a mannual runthrough before hand to raise i's value and I still got the error. 
+I tried setting i = 0 in the begininng insted of i = int() but that didn't work.
+I tried making a sepret variable that is = to i in case it was a proble with i being used as a crack value in ch but that didn't work
+I think i has to be rising becuse I do still get new values added to crack in the mannual runs
+! let's try printing out i so we can see its value --> it is actually 0 w/ the manual runs --> it does incress with the manual runs added but I still get the error
+!let's try adding a variable that would serve the same peropse as i would for this instance (but not make it eqaual to i, just do 'math' (for lack of a better word) to it accordingly
+!!!! changed i's name to back
+!! okay it looks like it's going to be a variable (back_s) which is sorta like back but not really and i don't feel like explaining it
+
+cool solved that problem
+
+it seems like the code is preforming if statments it doesn't meet the critea for
+! it is skipping over an if statment (check 3) that it shouldn't
+if I take out back_s then it gets stuck at that if statment and gives me a keyerror: -1
