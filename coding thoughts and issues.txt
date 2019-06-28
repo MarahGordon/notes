@@ -1,3 +1,6 @@
+*This is not a comprehensive list of all thoughs, problems, approches, and solutions run into while coding*
+*This is not a formal analysis, I made it to help me, you may look to see how I worked through stuff though*
+
 coding final project thoughts and issues:
 
 !! i's name was changed to back !!
